@@ -17,7 +17,7 @@ class CliGrepCommand extends ContainerAwareCommand {
             ->setDefinition(array(
                 new InputArgument('needle', InputArgument::REQUIRED, 'The text to search for'),
                 new InputOption('piped', null, InputOption::VALUE_REQUIRED, "The piped Data", ''),
-                new InputOption('case-sensitive', "i", InputOption::VALUE_OPTIONAL, "If the search is case sensitive", true),
+                new InputOption('case-sensitive', "i", InputOption::VALUE_NONE, "makes the search case sensitive"),
             ))
             ->setName('cli:grep')
             ->setDescription('shows only matching lines')
@@ -36,14 +36,16 @@ EOF
      protected function execute(InputInterface $input, OutputInterface $output) {
          $needle = $input->getArgument("needle");
          $case = $input->getOption("case-sensitive");
+         
+         echo ($case);
          $messages=explode("\n", $input->getOption("piped"));
          foreach ($messages as $line){
-                     if ($case){
-                         if (strstr( strtolower($line),  strtolower($needle))){
+                     if ($case == 1){
+                         if (strstr($line, $needle)){
                             $output->writeln($line);
                          }
                      }else{
-                         if (strstr($line, $needle)){
+                         if (stristr($line, $needle)){
                             $output->writeln($line);
                          }
                      }

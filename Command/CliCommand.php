@@ -42,6 +42,7 @@ class CliCommand extends ContainerAwareCommand {
 
         do {
             $userCommand = $dialog->ask($output, $this->prompt, "?");
+            try{
             $run = false;
             $userCommands = explode("|", $userCommand);
             $pipesToGo = count($userCommands) - 1;
@@ -105,6 +106,9 @@ class CliCommand extends ContainerAwareCommand {
                         $run = true;
                     }
                 }
+            }
+            }catch(Exception $ex){
+                $this->writeException($ex, $output);
             }
 //            foreach ($bufferedOutput->getMessages() as $m) {
 //                $output->writeln($m);
