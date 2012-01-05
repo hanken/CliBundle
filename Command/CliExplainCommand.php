@@ -33,7 +33,7 @@ class CliExplainCommand extends ContainerAwareCommand {
         $this->getApplication()->doRun(new StringInput("container:debug " . $id), $o);
         $templateVars["debug"] = array();
         $messages = $o->getMessages();
-        for ($i = 3; $i< count($messages); $i++){
+        for ($i = 1; $i< count($messages); $i++){
              $templateVars["debug"][] = $messages[$i];
         }
         ob_clean();
