@@ -10,13 +10,14 @@ The FRNKClieBundle extends the symfony 2 console with a php cli and some additio
          git=http://github.com/hanken/CliBundle.git
          target=/bundles/FRNK/CliBundle
 ### Run vendors
- 	run
+   run
 	 php bin/vendors install
-	to download and install the CliBundle
+
+   to download and install the CliBundle
 
 ### edit autoload
 
-    add the following to your app/autoload.php
+   add the following to your app/autoload.php
 
      # .../Symfony/app/autoload.php
 	$loader->registerNamespaces(array(
