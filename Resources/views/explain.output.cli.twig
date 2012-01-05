@@ -1,0 +1,12 @@
+
+<info>Explain: {{ service }} </info>
+--------------------------------------------------------------------------------
+{% for d in debug %}
+ {% autoescape false %}{{ d }}{% endautoescape %}
+
+{% endfor %}
+
+<info>Methods:</info>
+{% for method in methods %}
+                  <comment>{{ method }}</comment>
+{% endfor %}
