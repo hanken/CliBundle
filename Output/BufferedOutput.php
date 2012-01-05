@@ -42,7 +42,11 @@ class BufferedOutput extends StreamOutput {
     }
 
     public function getMessages() {
+        if (strlen($this->messages[count($this->messages)-1]) == 0){
+            unset($this->messages[count($this->messages)-1]);
+        }
         return $this->messages;
+        
     }
 
 }
