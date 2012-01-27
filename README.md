@@ -1,3 +1,7 @@
+##
+##   This is old! check http://github.com/hanken/FRNK-ShellExtensionBundle
+##
+
 # CliBundle
 
 The FRNKClieBundle extends the symfony 2 console with a php cli and some additional commands. 
